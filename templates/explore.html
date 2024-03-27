@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='explore.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+          <div class="logo"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('explore') }}">Explore</a></li>
+        </ul>     
+        <div class="profile">
+          <button onclick="Profile()">Profile</button>
+        </div>
+      </nav>
+    <header>
+        <h1>Explore</h1>
+    </header>
+    <main class="explore-container">
+        <div class="option-container border">
+            <label for="location">Location:</label>
+            <select id="location" name="location">
+                <option value="">Select Location</option>
+                <option value="Weekend getaway">Weekend getaway</option>
+                <option value="Domestic">Historic</option>
+                <option value="International">Hillsl</option>
+                <option value="Anywhere">Anywhere</option>
+            </select>
+        </div>
+        <div class="option-container">
+            <label for="season">Season:</label>
+            <select id="season" name="season">
+                <option value="">Select season</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+            </select>
+        </div>
+        <div class="option-container">
+            <label for="budget">Budget:</label>
+            <input type="number" id="budget" name="budget" placeholder="Enter budget" required>
+        </div>
+        <div class="option-container">
+            <label for="duration">Duration(in days):</label>
+            <input type="text" id="duration" name="duration" placeholder="Enter duration" required>
+        </div>
+        <div class="option-container">
+            <label for="starting-point">Starting Point:</label>
+            <select id="starting-point" name="starting-point">
+                <option value="">Select starting point</option>
+                <option value="pune">Pune</option>
+                <option value="mumbai">Mumbai</option>
+            </select>
+        </div>
+        <button type="submit">Search</button>
+    </main>
+</body>
+</html>

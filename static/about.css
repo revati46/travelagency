@@ -1,0 +1,106 @@
+/* CSS Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, rgba(63, 98, 94, 0), #2f2f2d);
+    background-image: url("{{ url_for('static', filename='about.jpg') }}");
+    background-size: cover;
+}
+
+nav {
+    height: 75px;
+    background-color: black;
+    color: white;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+  
+.nav-logo {
+    height: 70px;
+    width: 100px;
+    background-color: #84d5be;
+}
+
+.logo {
+    background-image: url("{{ url_for('static', filename='TA.png') }}");
+    background-size: cover;
+    height: 70px;
+    width: 100%;
+}
+
+  
+  .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  .nav-links li:last-child {
+    margin-right: 0;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    font-size: 30px;
+    color: white;   
+  }
+  
+  .profile button {
+    background-color: rgb(87, 85, 85); 
+    color: #b1bab9;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    right: 20px;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .profile button:hover {
+    background-color: #475c8b; 
+  }
+
+header {
+    
+    color: black;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main.about-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    height: 500px;
+}
+
+.about-section {
+    width: 45%;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.5); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 10px 6px 0px rgba(9, 0, 0, 0.1);
+    height: 400px;
+    width: 500px;
+    overflow: auto;
+}
+
+.about-section h2 {
+    color: #333;
+}

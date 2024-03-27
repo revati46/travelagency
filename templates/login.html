@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleforlogin.css') }}">
+</head>
+
+<body>
+    <div class='poster'></div>
+    <div class='central badge' id='logmodule'>
+        <div class='start'>
+            <img src="{{ url_for('static', filename='TA.png')}}" width='120'>
+            <div class='back' onclick='document.getElementById("logmodule").className = "central badge"'>Back to Login
+            </div>
+        </div>
+        <div class='ribbon' onclick='document.getElementById("logmodule").className = "central badge signup"'>Need an
+            account? Click here.</div>
+        <h1>TRAVEL WITH US</h1>
+        <h2>
+            Explore the places
+
+            <form action="/register" method="POST">
+                <input id='regemail' name='email' placeholder='Email' type='email' required>
+                <input id='regpass' name='password' placeholder='Password' type='password' required>
+                <input id='mobileno' name='mobileno' placeholder='Mobile No' type='text'>
+                <button type="submit" class='roundel register'>Register</button>
+            </form>
+
+            <a href=''>Terms and Conditions</a>
+        </h2>
+        <div class='end'>
+
+            <form action="/login" method="POST">
+                <input id='email' name='email' placeholder='Email' type='email' required>
+                <input id='password' name='password' placeholder='Password' type='password' required>
+                <button type="submit" class='roundel login'>Log In</button>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
