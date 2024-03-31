@@ -32,7 +32,7 @@ def register():
         email = request.form['email']
         password = request.form['password']
         number = request.form['mobileno'] 
-        new_user = User(email=email , password=password , number =number )
+        new_user = User(email=email , password=password , number=number )
         db.session.add(new_user)
         db.session.commit()
         return redirect('/login')
