@@ -1,125 +1,114 @@
-/* CSS Styles */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Zeyada&display=swap");
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: white;
-    height: 708px;
+	background-color: #18a5a7;
 }
 
-nav {
-    height: 75px;
-    background-color: black;
-    color: white;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.container {
+	width: 800px;
+	height: 500px;
+	display: flex;
+	margin: 80px auto;
+	font-family: "Lato", sans-serif;
+	background-image: linear-gradient(
+			rgba(24, 165, 167, 0.8),
+			rgba(191, 255, 199, 0.5)
+		),
+		url(https://images.pexels.com/photos/1058958/pexels-photo-1058958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	border-radius: 20px;
+	box-shadow:0px 0px 10px 0px #000;
 }
 
-  
-.nav-logo {
-    height: 70px;
-    width: 100px;
-    background-color: #84d5be;
+div{
+	background:
+rgba( 255, 255, 255, 0.1 );
+box-shadow:
+0 8px 32px 0 rgba( 31, 38, 135, 0.2 );
+backdrop-filter:
+blur( 7.5px );
+-webkit-backdrop-filter:
+blur( 7.5px );
+border-radius:
+10px;
+border:
+1px solid rgba( 255, 255, 255, 0.18 );
 }
 
-.logo {
-    background-image: url("{{ url_for('static', filename='TA.png') }}");
-    background-size: cover;
-    height: 70px;
-    width: 100%;
+.caja_derecha {
+	width: 50%;
+	color: #fff;
+	padding: 20px;
 }
 
-  
-  .nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav-links li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  .nav-links li:last-child {
-    margin-right: 0;
-  }
-  
-  .nav-links li a {
-    text-decoration: none;
-    font-size: 30px;
-    color: white;   
-  }
-  
-  .profile button {
-    background-color: rgb(87, 85, 85); 
-    color: #b1bab9; 
-    border: none;
-    padding: 15px 30px;
-    border-radius: 10px;
-    right: 20px;
-    font-size: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-  }
-
-  .profile button:hover {
-    background-color: #475c8b; 
-  }
-
-  header {
-    
-    color: black;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 50px;
+h2 {
+	margin: 10px;
+	text-align: center;
+	font-size: 14px;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 46px;
+h1 {
+	margin: 20px 10px 10px 30px;
+	text-align: center;
 }
 
-main.explore-container {
-    padding: 20px;
-    text-align: center;
+label {
+	display: block;
+	margin: 10px 0 5px 20px;
 }
 
-.option-container {
-    display: inline-block;
-    text-align: left;
-    margin-right: 20px;
+input[type="text"] {
+	border: none;
+	padding: 5px;
+	border-bottom: 1px solid #fff;
+	margin: 5px 20px;
+	background-color: transparent;
+	width: 80%;
+	outline: none;
+	caret-color: #fff;
+	color: #fff;
 }
 
-.option-container label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+input::focus {
+	color: #fff;
 }
 
-.option-container select,
-.option-container input {
-    width: 200px; 
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+input[type="submit"] {
+	background-color: #18a5a7;
+	border: none;
+	padding: 10px 20px;
+	display: block;
+	width: 73%;
+	margin: 20px;
+	cursor: pointer;
+	color: #fff;
 }
 
-button[type="submit"] {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+input[type="submit"]:hover{
+	background-color: #bfffc7;
 }
 
-button[type="submit"]:hover {
-    background-color: #555;
+.caja_izquierda {
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	background-image: linear-gradient(
+		rgba(0, 0, 0, 0.6),
+		rgba(0, 0, 0, 0)
+	);
+	border-radius: 0 20px 20px 0;
 }
 
-
+p {
+	font-family: "Zeyada", cursive;
+	font-size: 50px;
+	color: #fff;
+	text-align: center;
+}
