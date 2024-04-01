@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background: linear-gradient(to bottom, rgba(63, 98, 94, 0), #2f2f2d);
-    background-image: url("{{ url_for('static', filename='about.jpg') }}");
+    background-image: url("https://static.wanderon.in/wp-content/uploads/2024/02/new-delhi-to-host-travel-for-life-.jpg");
     background-size: cover;
 }
 

@@ -317,8 +317,9 @@ section.hero {
   /*    width: 100%;*/
   height: auto;
   background: var(--brand-02)
-    url("https://itinerary-pro.netlify.app/static/media/dashboard.fcaa937989c24c181a3d.jpg")
+    url("https://www.careinsurance.com/upload_master/media/posts/March2023/qkstzvqpvalzikkkb7h8.jpg")
     no-repeat center right;
+    height: 550px;
 
   display: flex;
   flex-direction: column;
