@@ -310,6 +310,7 @@ footer {
   position: relative;
   width: 100%;
   padding: 0 var(--pg-margin);
+  color: white;
 }
 
 section.hero {
