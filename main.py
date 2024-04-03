@@ -55,7 +55,6 @@ def login():
 
     return render_template('login.html')
    
-    
 @app.route('/dashboard')
 def dashboard():
     if 'email' in session:  
@@ -64,8 +63,6 @@ def dashboard():
     else:
         return redirect('/login')  
   
-    
-
 @app.route("/")
 def home():
     return render_template('index.html')
