@@ -41,35 +41,18 @@
                 </ul>
 
             </div>
+            
             <div class="contactForm">
                 <h2>Give us your feedback</h2>
-                <form action="/contact" method="POST"> <!-- Added form tag here -->
-                    <div class="formBox">
-                        <div class="inputBox w50">
-                            <input type="text" name="first_name" required>
-                            <span>First Name</span>
-                        </div>
-                        <div class="inputBox w50">
-                            <input type="text" name="last_name" required>
-                            <span>Last Name</span>
-                        </div>
-                        <div class="inputBox w50">
-                            <input type="email" name="email" required>
-                            <span>Email Address</span>
-                        </div>
-                        <div class="inputBox w50">
-                            <input type="text" name="mobile_number" required>
-                            <span>Mobile Number</span>
-                        </div>
-                        <div class="inputBox w100">
-                            <textarea name="message" required></textarea>
-                            <span>Write Your Message Here...</span>
-                        </div>
-                        <div class="inputBox w100">
-                            <input type="submit" value="Send">
-                        </div>
-                    </div>
-                </form> <!-- Closing form tag -->
+                <form method="POST" action="/contact">
+                    <input type="text" name="firstname" placeholder="First Name" required>
+                    <input type="text" name="lastname" placeholder="Last Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="text" name="mobilenumber" placeholder="Mobile Number" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                
             </div>
             
         </div>

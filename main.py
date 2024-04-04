@@ -1,9 +1,10 @@
-from flask import Flask, render_template , redirect ,session ,request
+from flask import Flask, render_template , redirect ,session , request
 from flask_sqlalchemy import SQLAlchemy
 import bcrypt
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_BINDS'] = {'feedback': 'sqlite:///feedback.db'}
 db = SQLAlchemy(app)
 
 app.secret_key = 'secret_key'
@@ -25,14 +26,48 @@ class User(db.Model):
 with app.app_context():
     db.create_all()    
     
+    
+    
+    
 class Feedback(db.Model):
+    __bind_key__ = 'feedback'
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(50), nullable=False)
-    last_name = db.Column(db.String(50), nullable=False)
+    firstname = db.Column(db.String(50), nullable=False)
+    lastname = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), nullable=False)
-    mobile_number = db.Column(db.String(10), nullable=False)
+    mobilenumber = db.Column(db.String(10), nullable=False)
     message = db.Column(db.Text, nullable=False)
 
+    def __init__(self,firstname,lastname,email,mobilenumber,message):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.email = email
+        self.mobilenumber = mobilenumber
+        self.message = message
+
+with app.app_context():
+    db.create_all()
+        
+        
+@app.route("/contact", methods=['POST', 'GET'])
+def submit_feedback():
+    if request.method == 'POST':
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        email = request.form['email']
+        mobilenumber = request.form['mobilenumber']
+        message = request.form['message']
+        
+        if not firstname:
+            return render_template('contact.html', error='Firstname cannot be empty')
+        
+        feedback = Feedback(firstname=firstname, lastname=lastname, email=email, mobilenumber=mobilenumber, message=message)
+        db.session.add(feedback)
+        db.session.commit()
+        return redirect('/dashboard')
+    else:
+        return render_template('contact.html')
+  
 
 @app.route("/register", methods=['GET' , 'POST'])
 def register():
@@ -71,21 +106,6 @@ def dashboard():
     else:
         return redirect('/login')  
     
-@app.route("/contact", methods=['POST','GET'])
-def submit_feedback():
-    print(request.form)  # Debugging line
-    first_name = request.form['first_name']
-    last_name = request.form['last_name']
-    email = request.form['email']
-    mobile_number = request.form['mobile_number']
-    message = request.form['message']
-    
-    feedback = Feedback(first_name=first_name, last_name=last_name, email=email, mobile_number=mobile_number, message=message)
-    db.session.add(feedback)
-    db.session.commit()
-    return redirect('/dashboard')
-
-
   
 @app.route("/")
 def home():
