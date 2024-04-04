@@ -25,6 +25,14 @@ class User(db.Model):
 with app.app_context():
     db.create_all()    
     
+class Feedback(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(50), nullable=False)
+    last_name = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), nullable=False)
+    mobile_number = db.Column(db.String(10), nullable=False)
+    message = db.Column(db.Text, nullable=False)
+
 
 @app.route("/register", methods=['GET' , 'POST'])
 def register():
@@ -62,6 +70,22 @@ def dashboard():
         return render_template('dashboard.html', user=user)
     else:
         return redirect('/login')  
+    
+@app.route("/contact", methods=['POST','GET'])
+def submit_feedback():
+    print(request.form)  # Debugging line
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    email = request.form['email']
+    mobile_number = request.form['mobile_number']
+    message = request.form['message']
+    
+    feedback = Feedback(first_name=first_name, last_name=last_name, email=email, mobile_number=mobile_number, message=message)
+    db.session.add(feedback)
+    db.session.commit()
+    return redirect('/dashboard')
+
+
   
 @app.route("/")
 def home():
@@ -70,10 +94,6 @@ def home():
 @app.route("/about")
 def about():
     return render_template('about.html')
-
-@app.route("/contact")
-def contact():
-    return render_template('contact.html')
 
 @app.route("/explore")
 def explore():
