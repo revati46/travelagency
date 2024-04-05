@@ -115,17 +115,9 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route("/explore", methods=["GET", "POST"])
+@app.route("/explore")
 def explore():
-    if request.method == "POST":
-        keyword = request.form.get("keyword")
-        if keyword:
-            scraped_packages = search_holiday_packages(keyword)
-            return render_template("explore.html", packages=scraped_packages)
-        else:
-            return render_template("explore.html", error="Please enter a keyword.")
-    else:
-        return render_template("explore.html")
+    return render_template('explore.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
