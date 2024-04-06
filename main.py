@@ -1,6 +1,8 @@
-from flask import Flask, render_template , redirect ,session , request
+from flask import Flask, render_template , redirect ,session , request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import bcrypt
+import openai
+import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -8,6 +10,8 @@ app.config['SQLALCHEMY_BINDS'] = {'feedback': 'sqlite:///feedback.db'}
 db = SQLAlchemy(app)
 
 app.secret_key = 'secret_key'
+
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 class User(db.Model):
     id = db.Column( db.Integer , primary_key=True )
@@ -118,6 +122,18 @@ def about():
 @app.route("/explore")
 def explore():
     return render_template('explore.html')
+
+@app.route("/generate-text", methods=['POST'])
+def generate_text():
+    data = request.json
+    prompt = data.get("prompt")
+    response = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=prompt,
+        max_tokens=100
+    )
+    generated_text = response.choices[0].text.strip()
+    return jsonify({"generated_text": generated_text})
 
 if __name__ == '__main__':
     app.run(debug=True)
