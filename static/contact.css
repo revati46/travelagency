@@ -120,78 +120,33 @@ section::before {
      font-weight: 500;
 }
 
-.container .contactForm .formBox {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding-top: 30px;
-}
-
-.container .contactForm .formBox .inputBox {
-    position: relative;
-    margin-bottom: 35px;
-}
-
-.container .contactForm .formBox .inputBox.w50 {
-    width: 47%;
-}
-
-.container .contactForm .formBox .inputBox.w100 {
+.contactForm input[type="text"],
+.contactForm input[type="email"],
+.contactForm textarea {
     width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; /* ensures padding and border are included in width */
 }
 
-.container .contactForm .formBox .inputBox input,
-.container .contactForm .formBox .inputBox textarea {
+.contactForm textarea {
+    height: 100px; /* adjust as needed */
+}
+
+.contactForm button {
     width: 100%;
-    resize: none;
-    padding: 5px 0;
-    font-size: 18px;
-    font-weight: 300;
-    color: #333;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid #777;
-}
-
-.container .contactForm .formBox .inputBox textarea {
-    height: 120px;
-}
-
-.container .contactForm .formBox .inputBox span {
-    position: absolute;
-    left: 0;
-    padding: 5px 0;
-    pointer-events: none;
-    font-size: 18px;
-    font-weight: 300;
-    transition: 0.3s;
-}
-
-.container .contactForm .formBox .inputBox input:focus ~ span,
-.container .contactForm .formBox .inputBox input:valid ~ span,
-.container .contactForm .formBox .inputBox textarea:focus ~ span,
-.container .contactForm .formBox .inputBox textarea:valid ~ span {
-    transform: translateY(-20px);
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    color: #095a55;
-    font-weight: 500; 
-}
-
-.container .contactForm .formBox .inputBox input[type="submit"] {
-    position: relative;
-    cursor: pointer;
-    background: #095a55;
+    padding: 10px;
+    background-color: #095a55;
     color: #fff;
     border: none;
-    max-width: 150px;
-    padding: 12px;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
-.container .contactForm .formBox .inputBox input[type="submit"]:hover {
-    background: #0d948b;
+.contactForm button:hover { 
+    background-color: #1aa097;;
 }
 
 /*responsive*/
