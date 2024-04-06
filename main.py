@@ -127,7 +127,7 @@ def explore():
 def ai():
     return render_template('ai.html')
 
-@app.route("/generate-text", methods=['POST'])
+@app.route("/generate-trip", methods=['POST'])
 def generate_text():
     data = request.json
     budget = request.form['budget']
