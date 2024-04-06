@@ -32,11 +32,9 @@ body {
 }
 
 header {
-  /*    width: 100%;*/
   height: auto;
   position: sticky;
   top: 0;
-  /*    border: 1px solid red;*/
   z-index: 100;
 }
 
@@ -85,12 +83,10 @@ nav .navigation-menu > li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*    justify-items: center;*/
 }
 
 nav .navigation-menu > li > a {
   position: relative;
-  /*    border: 1px solid purple;*/
   padding: 0 20px;
   height: 64px;
   display: flex;
@@ -105,7 +101,6 @@ nav .navigation-menu > li:hover ul.subnav {
 }
 
 nav .navigation-menu > li > ul.subnav {
-  /*    border: 1px solid green;*/
   visibility: hidden;
   position: absolute;
   display: flex;
@@ -127,14 +122,11 @@ nav > #utility {
 
 .card-large,
 .card-med {
-  /*    border: 1px solid orange;*/
   flex: 1;
-  /*    width: var(--nav-card-size);*/
 
   position: relative;
   display: flex;
   flex-direction: column;
-  /*    padding: 24px;*/
   transition: var(--hover-timing);
   cursor: pointer;
 }
@@ -143,7 +135,6 @@ nav > #utility {
   box-shadow: var(--card-shadow);
   border-radius: 12px;
   overflow: hidden;
-  /*    padding-bottom: 32px;*/
 }
 
 .card-large:hover {
@@ -157,7 +148,6 @@ nav > #utility {
 
 .card-image {
   width: 100%;
-  /*    height: 90%;*/
   aspect-ratio: 1/1;
   position: relative;
   border-radius: 12px;
@@ -194,12 +184,10 @@ nav > #utility {
 }
 
 .card-large > ul {
-  /*    padding: 16px 0 24px;*/
   display: flex;
   flex-direction: column;
   grid-gap: 8px;
   flex: 1;
-  /*    border: 1px solid blue;*/
 
   color: var(--text-01);
 
@@ -212,7 +200,6 @@ nav > #utility {
 .card-large > ul > li a {
   line-height: 32px;
   font-size: 14px;
-  /*    border: 1px solid red;*/
 }
 
 .card-large#sup-dog,
@@ -314,7 +301,6 @@ footer {
 }
 
 section.hero {
-  /*    width: 100%;*/
   height: auto;
   background: var(--brand-02)
     url("https://www.careinsurance.com/upload_master/media/posts/March2023/qkstzvqpvalzikkkb7h8.jpg")
@@ -369,12 +355,10 @@ section.hero h4 {
 
 .card-med > a > span {
   width: 100%;
-  /*    border: 1px solid blue;*/
 }
 
 .card-med > a > span:nth-of-type(1) {
   width: 100%;
-  /*    border: 1px solid blue;*/
   font-size: 24px;
   font-weight: 600;
   line-height: 1.2;
@@ -413,7 +397,6 @@ section.hero h4 {
 .card-med > .card-image > img {
   width: 80%;
   height: 80%;
-  /*    border: 1px solid red;*/
 }
 
 section:not(.hero) {
@@ -427,7 +410,6 @@ section h2 {
   text-align: center;
   color: var(--text-01);
   margin-bottom: 32px;
-  /*    padding-bottom: 24px;*/
 }
 
 .card-wide {
@@ -462,7 +444,6 @@ section h2 {
   font-size: 14px;
   line-height: 1.4;
   font-weight: 500;
-  /*    margin-top: 8px;*/
   margin-bottom: 24px;
 }
 
@@ -578,7 +559,6 @@ footer ul li {
 
   nav ul.navigation-menu li a {
     font-size: 16px;
-    /*        padding: 0 12px;*/
     white-space: nowrap;
   }
 
@@ -751,7 +731,6 @@ footer ul li {
   }
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   :root {
     --pg-margin: 80px;

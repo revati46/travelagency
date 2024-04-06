@@ -128,11 +128,11 @@ section::before {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    box-sizing: border-box; /* ensures padding and border are included in width */
+    box-sizing: border-box; 
 }
 
 .contactForm textarea {
-    height: 100px; /* adjust as needed */
+    height: 100px; 
 }
 
 .contactForm button {

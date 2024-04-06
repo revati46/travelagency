@@ -123,9 +123,17 @@ def about():
 def explore():
     return render_template('explore.html')
 
+@app.route("/ai")
+def ai():
+    return render_template('ai.html')
+
 @app.route("/generate-text", methods=['POST'])
 def generate_text():
     data = request.json
+    budget = request.form['budget']
+    interests = request.form['interests']
+    duration = request.form['duration']
+    location = request.form['location']
     prompt = data.get("prompt")
     response = openai.Completion.create(
         engine="text-davinci-003",
@@ -133,7 +141,7 @@ def generate_text():
         max_tokens=100
     )
     generated_text = response.choices[0].text.strip()
-    return jsonify({"generated_text": generated_text})
+    return jsonify({'generated_text': generated_text})
 
 if __name__ == '__main__':
     app.run(debug=True)

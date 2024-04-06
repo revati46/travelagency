@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Trip Suggestor</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='ai.css') }}">
+<script src="{{ url_for('static', filename='ai.js') }}"></script>
+</head>
+<body>
+
+    <div class="container">
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <select id="location" style="width: 150px">
+          <option value="" disabled selected>Select</option>
+          <option value="Weekend Getaway">Weekend Getaway</option>
+          <option value="Domestic">Domestic</option>
+          <option value="International">International</option>
+          <option value="Anywhere">Anywhere</option>
+        </select>
+      </div>
+      <div class="form-group">
+       <label for="interest">Interest</label>
+       <select id="interest" style="width: 150px">
+         <option value="" disabled selected>Select</option>
+         <option value="Adventure">Adventure</option>
+         <option value="Heritage">Heritage</option>
+         <option value="Relaxation">Relaxation</option>
+       </select>
+     </div>
+     <div class="form-group">
+        <label for="duration" >Duration:</label>
+        <input type="number" id="duration" min="1" value="1">
+      </div>
+      <div class="form-group">
+        <label for="budget" style="width: 100px">Budget:</label>
+        <input type="text" id="budget">
+      </div>
+    </div>
+
+    <button class="enter-btn">OK</button>
+
+    <div id="generated-text"></div>
+
+
+</body>
+</html>

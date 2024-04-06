@@ -1,0 +1,77 @@
+body, html {
+    font-family: Arial, sans-serif;
+    background-image: url('https://assets-global.website-files.com/6357bd3d0b…4d8a/65c4c96ab46cdbfb9a193163_ai_chatbot_hero.jpg');
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin: 50px auto; 
+    background-color: transparent; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .form-group {
+    margin-right: 20px;
+    justify-content: space-evenly;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  select, input[type="number"], input[type="text"] {
+    width: 150px;
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    margin-right: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.3s;
+  }
+  
+  select:hover, input[type="number"]:hover, input[type="text"]:hover {
+    background-color: rgba(255, 255, 255, 1); 
+  }
+  
+  .button-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  button {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .enter-btn {
+    padding: 10px 25px;
+    margin-top: 20px;
+    display: block; 
+    margin: 0 auto; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  }
+  
+  
+  
