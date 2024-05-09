@@ -838,11 +838,36 @@ footer ul li {
 }
 
 #map {
-  margin-top: 3%;
+  margin-top: 1%;
   height: 500px;
   width: 60%;
-  left: 20%;
+  left: 18%;
   border-radius: 10px;
   box-shadow: 0 0 10px;
 }
 
+/* Optionally, you can add a semi-transparent overlay to the map to visually indicate that it's below the popup card */
+#map::after {
+  content: "";
+  margin-top: 1%;
+  height: 500px;
+  width: 60%;
+  left: 18%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px;
+  z-index: -1;
+}
+
+/* Adjust the width and height of the Leaflet popup content wrapper */
+.leaflet-popup-content-wrapper {
+  width: 350px; /* Adjust the width as needed */
+  height: auto; /* Set height to auto to accommodate variable content */
+}
+
+/* Optionally, you can also style the popup content */
+.leaflet-popup-content {
+  /* Add any custom styling for the popup content */
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 10px;
+}
