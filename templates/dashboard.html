@@ -7,6 +7,9 @@
   <script type="text/javascript"
     src="https://platform-api.sharethis.com/js/sharethis.js#property=650d9d4c637e200019cd34c7&product=inline-share-buttons&source=platform"
     async="async"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
   <link rel="stylesheet" href="{{ url_for('static', filename='stylefordashboard.css') }}">
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 
@@ -49,7 +52,7 @@
         <span class="material-symbols-outlined">
           <li><a href="{{ url_for('explore') }}">Recommendations</a></li>
         </span>
-        
+
       </div>
     </nav>
   </header>
@@ -66,27 +69,36 @@
 
     <ul class="services">
       <li class="card-large card-dark card-wide" id="serv-groom">
-        <div class="card-image"><img src="https://media.istockphoto.com/id/1497396873/photo/ready-for-starting-my-beach-holiday.webp?b=1&s=170667a&w=0&k=20&c=2SNFbIDAdU6Lrp_-REz1ZX3jKE_mbkYT6LUOyhI8_NU=">
+        <div class="card-image"><img
+            src="https://media.istockphoto.com/id/1497396873/photo/ready-for-starting-my-beach-holiday.webp?b=1&s=170667a&w=0&k=20&c=2SNFbIDAdU6Lrp_-REz1ZX3jKE_mbkYT6LUOyhI8_NU=">
         </div>
         <ul>
-          Trip Planner<span class="subtitle">We are here to take you to the beautiful places with nothiing left behind.</span>
+          Trip Planner<span class="subtitle">We are here to take you to the beautiful places with nothiing left
+            behind.</span>
           <button class="btn-filled-dark"><span class="material-symbols-outlined">
-            Lets plan
-            </span><li><a href="https://holidayz.makemytrip.com/holidays/india/package?id=34354&fromCity=New%20Delhi&pkgType=FIT&listingClassId=8&depDate=2024-05-31&variantId=FLIGHT_753351F1">Click here</a></li></button>
+              Lets plan
+            </span>
+            <li><a
+                href="https://holidayz.makemytrip.com/holidays/india/package?id=34354&fromCity=New%20Delhi&pkgType=FIT&listingClassId=8&depDate=2024-05-31&variantId=FLIGHT_753351F1">Click
+                here</a></li>
+          </button>
 
         </ul>
 
 
       </li>
       <li class="card-large card-dark card-wide" id="serv-board">
-        <div class="card-image"><img src="https://media.cntraveler.com/photos/6400c114054e094ffa8bc8eb/16:9/w_2560%2Cc_limit/Travel%2520and%2520AI%25203-3-2023%2520FA_Dan%2520Matutina.jpg">
-        
+        <div class="card-image"><img
+            src="https://media.cntraveler.com/photos/6400c114054e094ffa8bc8eb/16:9/w_2560%2Cc_limit/Travel%2520and%2520AI%25203-3-2023%2520FA_Dan%2520Matutina.jpg">
+
         </div>
         <ul>
           AI Trip Suggestor<span class="subtitle">Let us know if you are confused for where to go...</span>
           <button class="btn-filled-dark"><span class="material-symbols-outlined">
               Try our suggestions
-            </span><li><a href="{{ url_for('ai') }}">Click here</a></li></button>
+            </span>
+            <li><a href="{{ url_for('ai') }}">Click here</a></li>
+          </button>
         </ul>
 
       </li>
@@ -100,106 +112,140 @@
 
       <div class="card-wrapper">
         <div class="card-image">
-          <img src="{{ url_for('static', filename='manali.jpeg') }}"
-            alt="Avatar">
+          <img src="{{ url_for('static', filename='manali.jpeg') }}" alt="Avatar">
         </div>
         <div class="card-content">
-          <h3><li><a href="https://holidayz.makemytrip.com/holidays/india/search?fromSearchWidget=true&searchDep=Manali&dest=Manali&destValue=Manali&depCity=Mumbai&initd=searchwidget_landing_Manali_notheme&dateSearched=25%2F05%2F2024&glp=true&pdo=true&rooms=2%2C0%2C0%2C0%2C%2C%2C&onlywithflight=1&affiliate=MMT##page_header">MANALI</a></li></h3>
+          <h3>
+            <li><a
+                href="https://holidayz.makemytrip.com/holidays/india/search?fromSearchWidget=true&searchDep=Manali&dest=Manali&destValue=Manali&depCity=Mumbai&initd=searchwidget_landing_Manali_notheme&dateSearched=25%2F05%2F2024&glp=true&pdo=true&rooms=2%2C0%2C0%2C0%2C%2C%2C&onlywithflight=1&affiliate=MMT##page_header">MANALI</a>
+            </li>
+          </h3>
         </div>
       </div>
       <div class="card-wrapper">
         <div class="card-image">
-          <img src="{{ url_for('static', filename='tajmahal.jpeg') }}"
-            alt="Avatar">
+          <img src="{{ url_for('static', filename='tajmahal.jpeg') }}" alt="Avatar">
         </div>
         <div class="card-content">
-          <h3><li><a href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Pune&dateSearched=01%2F06%2F2024&dest=Agra&destValue=Agra&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">AGRA</a></li></h3>
+          <h3>
+            <li><a
+                href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Pune&dateSearched=01%2F06%2F2024&dest=Agra&destValue=Agra&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">AGRA</a>
+            </li>
+          </h3>
         </div>
       </div>
       <div class="card-wrapper">
         <div class="card-image">
-          <img src="https://cdn.pixabay.com/photo/2019/09/25/06/31/victoria-memorial-4502719_1280.jpg"
-            alt="Avatar">
+          <img src="https://cdn.pixabay.com/photo/2019/09/25/06/31/victoria-memorial-4502719_1280.jpg" alt="Avatar">
         </div>
         <div class="card-content">
-          <h3><li><a href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Mumbai&dateSearched=20%2F05%2F2024&dest=Around%20Kolkata&destValue=Around%20Kolkata&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">KOLKATA</a></li></h3>
+          <h3>
+            <li><a
+                href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Mumbai&dateSearched=20%2F05%2F2024&dest=Around%20Kolkata&destValue=Around%20Kolkata&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">KOLKATA</a>
+            </li>
+          </h3>
         </div>
       </div>
       <div class="card-wrapper">
         <div class="card-image">
-          <img src="https://cdn.pixabay.com/photo/2022/01/09/09/35/charminar-6925631_1280.jpg"
-            alt="Avatar">
+          <img src="https://cdn.pixabay.com/photo/2022/01/09/09/35/charminar-6925631_1280.jpg" alt="Avatar">
         </div>
         <div class="card-content">
-          <h3><li><a href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Mumbai&dateSearched=10%2F05%2F2024&dest=Hyderabad&destValue=Hyderabad&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">HYDERABAD</a></li></h3>
+          <h3>
+            <li><a
+                href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Mumbai&dateSearched=10%2F05%2F2024&dest=Hyderabad&destValue=Hyderabad&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">HYDERABAD</a>
+            </li>
+          </h3>
         </div>
       </div>
       <div class="card-wrapper">
         <div class="card-image">
-          <img src="{{ url_for('static', filename='place3.jpg') }}"
-            alt="Avatar">
+          <img src="{{ url_for('static', filename='place3.jpg') }}" alt="Avatar">
         </div>
         <div class="card-content">
-          <h3><li><a href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Pune&dateSearched=01%2F05%2F2024&dest=Mumbai&destValue=Mumbai&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">MUMBAI</a></li></h3>
+          <h3>
+            <li><a
+                href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Pune&dateSearched=01%2F05%2F2024&dest=Mumbai&destValue=Mumbai&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">MUMBAI</a>
+            </li>
+          </h3>
         </div>
       </div>
       <div class="card-wrapper">
         <div class="card-image">
-          <img src="https://cdn.pixabay.com/photo/2014/02/27/19/23/hanging-bridge-276142_1280.jpg"
-            alt="Avatar">
+          <img src="https://cdn.pixabay.com/photo/2014/02/27/19/23/hanging-bridge-276142_1280.jpg" alt="Avatar">
         </div>
         <div class="card-content">
-          <h3><li><a href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Pune&dateSearched=15%2F05%2F2024&dest=Karnataka&destValue=Karnataka&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">KARNA-<br>TAKA</a></li></h3>
+          <h3>
+            <li><a
+                href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Pune&dateSearched=15%2F05%2F2024&dest=Karnataka&destValue=Karnataka&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">KARNA-<br>TAKA</a>
+            </li>
+          </h3>
         </div>
       </div>
       <div class="card-wrapper">
         <div class="card-image">
-          <img src="https://cdn.pixabay.com/photo/2021/01/06/16/58/harmandir-sahib-5895031_1280.jpg"
-            alt="Avatar">
+          <img src="https://cdn.pixabay.com/photo/2021/01/06/16/58/harmandir-sahib-5895031_1280.jpg" alt="Avatar">
         </div>
         <div class="card-content">
-          <h3><li><a href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Pune&dateSearched=20%2F05%2F2024&dest=Punjab&destValue=Punjab&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">PUNJAB</a></li></h3>
+          <h3>
+            <li><a
+                href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Pune&dateSearched=20%2F05%2F2024&dest=Punjab&destValue=Punjab&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">PUNJAB</a>
+            </li>
+          </h3>
         </div>
       </div>
       <div class="card-wrapper">
         <div class="card-image">
-          <img src="https://cdn.pixabay.com/photo/2018/09/11/17/20/jaipur-3670085_1280.jpg"
-            alt="Avatar">
+          <img src="https://cdn.pixabay.com/photo/2018/09/11/17/20/jaipur-3670085_1280.jpg" alt="Avatar">
         </div>
         <div class="card-content">
-          <h3><li><a href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Pune&dateSearched=15%2F05%2F2024&dest=Rajasthan&destValue=Rajasthan&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">RAJASTHAN</a></li></h3>
+          <h3>
+            <li><a
+                href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Pune&dateSearched=15%2F05%2F2024&dest=Rajasthan&destValue=Rajasthan&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">RAJASTHAN</a>
+            </li>
+          </h3>
         </div>
       </div>
       <div class="card-wrapper">
         <div class="card-image">
-          <img src="{{ url_for('static', filename='kedarnath.jpg') }}"
-            alt="Avatar">
+          <img src="{{ url_for('static', filename='kedarnath.jpg') }}" alt="Avatar">
         </div>
         <div class="card-content">
-          <h3><li><a href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Mumbai&dateSearched=01%2F06%2F2024&dest=Kedarnath&destValue=Kedarnath&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">KEDARNATH</a></li></h3>
+          <h3>
+            <li><a
+                href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Mumbai&dateSearched=01%2F06%2F2024&dest=Kedarnath&destValue=Kedarnath&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">KEDARNATH</a>
+            </li>
+          </h3>
         </div>
       </div>
       <div class="card-wrapper">
         <div class="card-image">
-          <img src="https://cdn.pixabay.com/photo/2017/02/09/16/11/houseboat-2052738_1280.jpg"
-            alt="Avatar">
+          <img src="https://cdn.pixabay.com/photo/2017/02/09/16/11/houseboat-2052738_1280.jpg" alt="Avatar">
         </div>
         <div class="card-content">
-          <h3><li><a href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Pune&dateSearched=01%2F05%2F2024&dest=Kerala&destValue=Kerala&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">KERALA</a></li></h3>
+          <h3>
+            <li><a
+                href="https://holidayz.makemytrip.com/holidays/india/search?depCity=Pune&dateSearched=01%2F05%2F2024&dest=Kerala&destValue=Kerala&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C">KERALA</a>
+            </li>
+          </h3>
         </div>
       </div>
-      
+
 
     </div>
 
   </section>
+
+  <div id="map"></div>
+
 
   <section id="services">
     <h2>Popular packages</h2>
 
     <ul class="services">
       <li class="card-large card-dark card-wide" id="serv-groom">
-        <div class="card-image"><img src="https://media.easemytrip.com/media/Deal/DL638006747712464031/SightSeeing/SightSeeingygkeMh.jpg">
+        <div class="card-image"><img
+            src="https://media.easemytrip.com/media/Deal/DL638006747712464031/SightSeeing/SightSeeingygkeMh.jpg">
         </div>
         <ul>
           Goa<span class="subtitle">We are here to take you to the Heaven on Earth.</span>
@@ -208,7 +254,11 @@
           <li><a href="#">Per person</a><span>₹20,735</span></li>
           <button class="btn-filled-dark"><span class="material-symbols-outlined">
               Book Now
-            </span><li><a href="https://holidayz.makemytrip.com/holidays/india/package?id=34354&fromCity=New%20Delhi&pkgType=FIT&listingClassId=8&depDate=2024-05-31&variantId=FLIGHT_753351F1">See more</a></li></button>
+            </span>
+            <li><a
+                href="https://holidayz.makemytrip.com/holidays/india/package?id=34354&fromCity=New%20Delhi&pkgType=FIT&listingClassId=8&depDate=2024-05-31&variantId=FLIGHT_753351F1">See
+                more</a></li>
+          </button>
 
         </ul>
 
@@ -225,7 +275,11 @@
           <li><a href="#">Per person</a><span>₹59,327</span></li>
           <button class="btn-filled-dark"><span class="material-symbols-outlined">
               Book Now
-            </span><li><a href="https://holidayz.makemytrip.com/holidays/india/package?id=27127&fromCity=Pune&pkgType=FIT&listingClassId=8&depDate=2024-05-20&searchDate=2024-05-20&glp=true&room=2%2C0%2C0%2C0%2C%2C%2C&variantId=FLIGHT_CAR_E200A752">See more</a></li></button>
+            </span>
+            <li><a
+                href="https://holidayz.makemytrip.com/holidays/india/package?id=27127&fromCity=Pune&pkgType=FIT&listingClassId=8&depDate=2024-05-20&searchDate=2024-05-20&glp=true&room=2%2C0%2C0%2C0%2C%2C%2C&variantId=FLIGHT_CAR_E200A752">See
+                more</a></li>
+          </button>
         </ul>
 
       </li>
@@ -241,38 +295,76 @@
       <div class="btn-group">
         <button class="btn-filled-dark"><span class="material-symbols-outlined">
             Satisfied or not?
-          </span><li><a href="/contact">Response</a></li></button>
+          </span>
+          <li><a href="/contact">Response</a></li>
+        </button>
         <button class="btn-outline-dark btn-hover-color"><span class="material-symbols-outlined">
             contact_support
-          </span><li><a href="/contact"> Contact Us</a></li></button>
-          
+          </span>
+          <li><a href="/contact"> Contact Us</a></li>
+        </button>
+
       </div>
     </div>
   </section>
-  
+
   <section id="about">
-  <footer>
-    <h1>About Us</h1>
-
-    
-    <h2>Who We Are</h2>
-    <p>
-      <i class="fa-solid fa-play"></i> TravelCity is a travel itinerary recommendation website that helps travelers plan their trips with ease. 
-      <br><br><i class="fa-solid fa-play"></i> Our website offers itinerary suggestions from popular travel websites like MakeMyTrip, trip itinerary that meets your preferences and budget. 
-      <br><br><i class="fa-solid fa-play"></i> So you can easily access your trip details on the go.
-    </p>
-    
-    
-    <h2>What We Do</h2>
-    <p><i class="fa-solid fa-play"></i> We believe that planning a trip should be as enjoyable as the trip itself. 
-      <br><br><i class="fa-solid fa-play"></i> We use advanced algorithms and machine learning techniques to generate itinerary recommendations that are tailored to your interests, time constraints, and budget.
-      <br><br><i class="fa-solid fa-play"></i> We also work hard to make your itinerary look beautiful and professional, so you can share it with friends and family or use it as a reference during your trip.
-    </p>
-    
+    <footer>
+      <h1>About Us</h1>
 
 
-  </footer>
+      <h2>Who We Are</h2>
+      <p>
+        <i class="fa-solid fa-play"></i> TravelCity is a travel itinerary recommendation website that helps travelers
+        plan their trips with ease.
+        <br><br><i class="fa-solid fa-play"></i> Our website offers itinerary suggestions from popular travel websites
+        like MakeMyTrip, trip itinerary that meets your preferences and budget.
+        <br><br><i class="fa-solid fa-play"></i> So you can easily access your trip details on the go.
+      </p>
+
+
+      <h2>What We Do</h2>
+      <p><i class="fa-solid fa-play"></i> We believe that planning a trip should be as enjoyable as the trip itself.
+        <br><br><i class="fa-solid fa-play"></i> We use advanced algorithms and machine learning techniques to generate
+        itinerary recommendations that are tailored to your interests, time constraints, and budget.
+        <br><br><i class="fa-solid fa-play"></i> We also work hard to make your itinerary look beautiful and
+        professional, so you can share it with friends and family or use it as a reference during your trip.
+      </p>
+
+
+
+    </footer>
   </section>
+
+
+  <script>
+    var map = L.map('map').setView([20.5937, 78.9629], 4); // Set coordinates for India and a zoom level of 5
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add markers for each location
+    var locations = [
+      { name: 'Manali', coordinates: [32.2396, 77.1887] },
+      { name: 'Taj Mahal', coordinates: [27.1751, 78.0421] },
+      { name: 'Kolkata', coordinates: [22.5726, 88.3639] },
+      { name: 'Hyderabad', coordinates: [17.3850, 78.4867] },
+      { name: 'Punjab', coordinates: [31.1471, 75.3412] },
+      { name: 'Agra', coordinates: [27.1767, 78.0081] },
+      { name: 'Karnataka', coordinates: [15.3173, 75.7139] },
+      { name: 'Kerala', coordinates: [10.8505, 76.2711] },
+      { name: 'Rajasthan', coordinates: [27.0238, 74.2179] }
+    ];
+
+    locations.forEach(location => {
+      var marker = L.marker(location.coordinates).addTo(map);
+      marker.bindPopup(`<button onclick="window.location.href='https://holidayz.makemytrip.com/holidays/india/search?depCity=Pune&dateSearched=01%2F05%2F2024&dest=${location.name}&destValue=${location.name}&glp=true&pdo=false&affiliate=MMT&rooms=2%2C0%2C0%2C0%2C%2C%2C'">Visit ${location.name}</button>`);
+    });
+  </script>
+
+
 
 </body>
 

@@ -836,3 +836,13 @@ footer ul li {
   padding-right: 5px;
   font-size: 1em;
 }
+
+#map {
+  margin-top: 3%;
+  height: 500px;
+  width: 60%;
+  left: 20%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px;
+}
+
