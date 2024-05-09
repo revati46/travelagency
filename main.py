@@ -123,9 +123,6 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route("/explore")
-def explore():
-    return render_template('explore.html')
 
 @app.route("/ai")
 def ai():
@@ -164,6 +161,35 @@ def generate_trip():
 
     return render_template('ai.html', ai_response=ai_response)
 
+
+
+
+@app.route('/explore', methods=['POST','GET'])
+def explore():
+    # Extract form data
+    starting_point = request.form['starting-point']
+    location = request.form['location']
+    season = request.form['season']
+    theme = request.form['theme']
+    budget = request.form['budget']
+    travel_duration = request.form['travel-duration']
+
+    # Logic to generate trip packages based on user input
+    trip_packages = generate_trip_packages(starting_point, location, season, theme, budget, travel_duration)
+
+    # Return trip packages as JSON response
+    return jsonify(trip_packages)
+
+# Function to generate trip packages (dummy implementation)
+def generate_trip_packages(starting_point, location, season, theme, budget, travel_duration):
+    # Dummy implementation - You should replace this with your actual logic to generate trip packages
+    trip_packages = [
+        {'name': 'Trip Package 1', 'description': 'Description of trip package 1'},
+        {'name': 'Trip Package 2', 'description': 'Description of trip package 2'},
+        {'name': 'Trip Package 3', 'description': 'Description of trip package 3'},
+    ]
+
+    return trip_packages
 
 if __name__ == '__main__':
     app.run(debug=True)
