@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import bcrypt
 import openai
 import os
+import requests
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -10,6 +11,9 @@ app.config['SQLALCHEMY_BINDS'] = {'feedback': 'sqlite:///feedback.db'}
 db = SQLAlchemy(app)
 
 app.secret_key = 'secret_key'
+
+API_KEY = "AIzaSyDjvMCB5TsWd7CErlePpCHeCoZzUKcw3Xs"
+API_ENDPOINT = "https://api.aicloud.com/v1/gpt-3/complete"
 
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 
@@ -127,21 +131,39 @@ def explore():
 def ai():
     return render_template('ai.html')
 
-@app.route("/generate-trip", methods=['POST'])
-def generate_text():
-    data = request.json
-    budget = request.form['budget']
-    interests = request.form['interests']
-    duration = request.form['duration']
+
+@app.route('/generate_trip', methods=['POST'])
+def generate_trip():
     location = request.form['location']
-    prompt = data.get("prompt")
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=prompt,
-        max_tokens=100
-    )
-    generated_text = response.choices[0].text.strip()
-    return jsonify({'generated_text': generated_text})
+    interest = request.form['interest']
+    duration = request.form['duration']
+    budget = request.form['budget']
+
+    prompt = f"Generate a trip suggestion for {duration} days to {location} with interest in {interest} and a budget of {budget}."
+
+    headers = {
+        'Authorization': f'Bearer {API_KEY}',
+        'Content-Type': 'application/json'
+    }
+    data = {
+        'prompt': prompt,
+        'max_tokens': 100  # Adjust max tokens as needed
+    }
+
+    try:
+        response = requests.post(API_ENDPOINT, json=data, headers=headers)
+        print("Response status code:", response.status_code)
+        print("Response text:", response.text)
+
+        if response.status_code == 200:
+            ai_response = response.json()['choices'][0]['text'].strip()
+        else:
+            ai_response = f"Error: Unable to get AI response. Status code: {response.status_code}"
+    except Exception as e:
+        ai_response = f"Error: {str(e)}"
+
+    return render_template('ai.html', ai_response=ai_response)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
