@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import bcrypt
 import openai
 import os
+import requests
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -10,6 +11,9 @@ app.config['SQLALCHEMY_BINDS'] = {'feedback': 'sqlite:///feedback.db'}
 db = SQLAlchemy(app)
 
 app.secret_key = 'secret_key'
+
+API_KEY = "AIzaSyDjvMCB5TsWd7CErlePpCHeCoZzUKcw3Xs"
+API_ENDPOINT = "https://api.aicloud.com/v1/gpt-3/complete"
 
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 
@@ -119,29 +123,73 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route("/explore")
-def explore():
-    return render_template('explore.html')
 
 @app.route("/ai")
 def ai():
     return render_template('ai.html')
 
-@app.route("/generate-trip", methods=['POST'])
-def generate_text():
-    data = request.json
-    budget = request.form['budget']
-    interests = request.form['interests']
-    duration = request.form['duration']
+
+@app.route('/generate_trip', methods=['POST'])
+def generate_trip():
     location = request.form['location']
-    prompt = data.get("prompt")
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=prompt,
-        max_tokens=100
-    )
-    generated_text = response.choices[0].text.strip()
-    return jsonify({'generated_text': generated_text})
+    interest = request.form['interest']
+    duration = request.form['duration']
+    budget = request.form['budget']
+
+    prompt = f"Generate a trip suggestion for {duration} days to {location} with interest in {interest} and a budget of {budget}."
+
+    headers = {
+        'Authorization': f'Bearer {API_KEY}',
+        'Content-Type': 'application/json'
+    }
+    data = {
+        'prompt': prompt,
+        'max_tokens': 100  # Adjust max tokens as needed
+    }
+
+    try:
+        response = requests.post(API_ENDPOINT, json=data, headers=headers)
+        print("Response status code:", response.status_code)
+        print("Response text:", response.text)
+
+        if response.status_code == 200:
+            ai_response = response.json()['choices'][0]['text'].strip()
+        else:
+            ai_response = f"Error: Unable to get AI response. Status code: {response.status_code}"
+    except Exception as e:
+        ai_response = f"Error: {str(e)}"
+
+    return render_template('ai.html', ai_response=ai_response)
+
+
+
+
+@app.route('/explore', methods=['POST','GET'])
+def explore():
+    # Extract form data
+    starting_point = request.form['starting-point']
+    location = request.form['location']
+    season = request.form['season']
+    theme = request.form['theme']
+    budget = request.form['budget']
+    travel_duration = request.form['travel-duration']
+
+    # Logic to generate trip packages based on user input
+    trip_packages = generate_trip_packages(starting_point, location, season, theme, budget, travel_duration)
+
+    # Return trip packages as JSON response
+    return jsonify(trip_packages)
+
+# Function to generate trip packages (dummy implementation)
+def generate_trip_packages(starting_point, location, season, theme, budget, travel_duration):
+    # Dummy implementation - You should replace this with your actual logic to generate trip packages
+    trip_packages = [
+        {'name': 'Trip Package 1', 'description': 'Description of trip package 1'},
+        {'name': 'Trip Package 2', 'description': 'Description of trip package 2'},
+        {'name': 'Trip Package 3', 'description': 'Description of trip package 3'},
+    ]
+
+    return trip_packages
 
 if __name__ == '__main__':
     app.run(debug=True)

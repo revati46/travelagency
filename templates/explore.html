@@ -1,64 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='explore.css') }}">
-    <script src="{{ url_for('static', filename='explore.js') }}"></script>
-  </head>
-  <body>
-    <div id="gradient">
-        <div class="container">
-            <h1>Explore Your Next Adventure</h1>
-            <form action="#">
-              <div class="form-group">
-                <label for="starting-point">Starting Point:</label>
-                <input type="text" id="starting-point" name="starting-point" placeholder="Enter starting point">
-              </div>
-              <div class="form-group">
-                <label for="location">Location:</label>
-                <select id="location" name="location">
-                  <option value="">Select location...</option>
-                  <option value="Europe">Europe</option>
-                  <option value="Asia">Asia</option>
-                  <option value="North America">North America</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="season">Season:</label>
-                <select id="season" name="season">
-                  <option value="">Select season...</option>
-                  <option value="Spring">Spring</option>
-                  <option value="Summer">Summer</option>
-                  <option value="Autumn">Autumn</option>
-                  <option value="Winter">Winter</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="theme">Theme:</label>
-                <select id="theme" name="theme">
-                  <option value="">Select theme...</option>
-                  <option value="Adventure">Adventure</option>
-                  <option value="Relaxation">Relaxation</option>
-                  <option value="Cultural">Cultural</option>
-                  <option value="Historical">Historical</option>
-                  <option value="Wildlife">Wildlife</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="budget">Budget:</label>
-                <input type="text" id="budget" name="budget" placeholder="Enter budget">
-              </div>
-              <div class="form-group">
-                <label for="travel-duration">Travel Duration:</label>
-                <select id="travel-duration" name="travel-duration">
-                  <option value="">Select duration...</option>
-                  <option value="Weekend Getaway">Weekend Getaway</option>
-                  <option value="1-2 weeks">1-2 weeks</option>
-                  <option value="2-4 weeks">2-4 weeks</option>
-                </select>
-              </div>
-              <button type="submit">Explore</button>
-            </form>
-          </div>
- </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore</title>
+</head>
+<body>
+    <form action="/explore" method="post">
+        <div class="form-group">
+            <label for="starting-point">Starting Point:</label>
+            <input type="text" id="starting-point" name="starting-point" placeholder="Enter starting point">
+        </div>
+        <div class="form-group">
+            <label for="location">Location:</label>
+            <select id="location" name="location">
+                <option value="">Select location...</option>
+                <option value="Europe">Europe</option>
+                <option value="Asia">Asia</option>
+                <option value="North America">North America</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="season">Season:</label>
+            <select id="season" name="season">
+                <option value="">Select season...</option>
+                <option value="Spring">Spring</option>
+                <option value="Summer">Summer</option>
+                <option value="Autumn">Autumn</option>
+                <option value="Winter">Winter</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="theme">Theme:</label>
+            <select id="theme" name="theme">
+                <option value="">Select theme...</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Relaxation">Relaxation</option>
+                <option value="Cultural">Cultural</option>
+                <option value="Historical">Historical</option>
+                <option value="Wildlife">Wildlife</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="budget">Budget:</label>
+            <input type="text" id="budget" name="budget" placeholder="Enter budget">
+        </div>
+        <div class="form-group">
+            <label for="travel-duration">Travel Duration:</label>
+            <select id="travel-duration" name="travel-duration">
+                <option value="">Select duration...</option>
+                <option value="Weekend Getaway">Weekend Getaway</option>
+                <option value="1-2 weeks">1-2 weeks</option>
+                <option value="2-4 weeks">2-4 weeks</option>
+            </select>
+        </div>
+        <button type="submit">Explore</button>
+    </form>
+</body>
 </html>
