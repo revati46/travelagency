@@ -56,25 +56,25 @@ class Feedback(db.Model):
 with app.app_context():
     db.create_all()
         
-        
-@app.route("/contact", methods=['POST', 'GET'])
-def submit_feedback():
+@app.route("/contact", methods=['GET', 'POST'])
+def contact():
     if request.method == 'POST':
-        firstname = request.form['firstname']
-        lastname = request.form['lastname']
-        email = request.form['email']
-        mobilenumber = request.form['mobilenumber']
-        message = request.form['message']
-        
-        if not firstname:
-            return render_template('contact.html', error='Firstname cannot be empty')
-        
+        firstname = request.form.get('firstname')
+        lastname = request.form.get('lastname')
+        email = request.form.get('email')
+        mobilenumber = request.form.get('mobilenumber')
+        message = request.form.get('message')
+
+        if not (firstname and lastname and email and mobilenumber and message):
+            flash('All fields are required!', 'error')
+            return redirect(url_for('contact'))
+
         feedback = Feedback(firstname=firstname, lastname=lastname, email=email, mobilenumber=mobilenumber, message=message)
         db.session.add(feedback)
         db.session.commit()
-        return redirect('/dashboard')
-    else:
-        return render_template('contact.html')
+
+    feedback_list = Feedback.query.all()
+    return render_template('contact.html', feedback_list=feedback_list)
   
 
 @app.route("/register", methods=['GET' , 'POST'])

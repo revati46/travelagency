@@ -57,5 +57,16 @@
             
         </div>
     </section>
+
+    <h2>Feedback Received</h2>
+<div class="feedback-container">
+    {% for feedback in feedback_list %}
+        <div class="feedback-card">
+            <p><strong>{{ feedback.firstname }} {{ feedback.lastname }}</strong> ({{ feedback.email }})</p>
+            <p>{{ feedback.message }}</p>
+        </div>
+    {% endfor %}
+</div>
+
 </body>
 </html>
